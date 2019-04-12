@@ -1,0 +1,39 @@
+*** Important Commands in bash ***
+Create a folder:
+mkdir myfolder
+
+Change directory:
+cd myfolder
+
+Make folder a Git folder (this will be your local master):
+git init
+
+Create a file with text:
+- echo "my text" > myfile.txt
+
+Append text to a file:
+- echo "my new row of text" >> myfile.txt
+
+Add file into git:
+git add myfile.txt
+
+Stage file in git:
+git stage myfile.txt
+
+Commit file to git:
+git commit -m "my commit comment"
+
+Create a new local branch:
+git branch --create dev
+
+Create connection to remote origin in GitHub (Create the remote origin in git hub first)
+git remote add origin <url>
+
+
+Check out branch (change branch):
+git checkout dev
+
+
+
+
+
