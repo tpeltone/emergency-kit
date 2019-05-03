@@ -15,7 +15,9 @@ Append text to a file:
 - echo "my new row of text" >> myfile.txt
 
 Add file into git:
+git add .
 git add myfile.txt
+git add myfile.txt myfile2.txt
 
 Stage file in git:
 git stage myfile.txt
@@ -29,9 +31,25 @@ git branch --create dev
 Create connection to remote origin in GitHub (Create the remote origin in git hub first)
 git remote add origin <url>
 
-
 Check out branch (change branch):
 git checkout dev
+git checkout -b dev
+
+Commit history:
+git log
+
+Rebase (https://medium.com/datadriveninvestor/git-rebase-vs-merge-cc5199edd77c):
+git rebase master
+
+Merge:
+git merge master
+
+Reset change:
+git reset HEAD^
+
+You need original file after a change:
+git checkout -- file2.txt
+
 
 
 
