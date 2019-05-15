@@ -50,8 +50,20 @@ git reset HEAD^
 You need original file after a change:
 git checkout -- file2.txt
 
+Prune:
+git fetch -p
 
+Remote:
+git remote -v
+git remote add ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
+git remote set-url ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
 
+Push:
+git push -u ref --all
+
+Log decorate:
+git log --oneline --graph --decorate
+ 
 
 
 
