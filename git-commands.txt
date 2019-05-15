@@ -55,7 +55,7 @@ git fetch -p
 
 Remote:
 git remote -v
-git remote add ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
+git remote add ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git (this is when cloned from enother repo and then add the ref)
 git remote set-url ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
 
 Push:
