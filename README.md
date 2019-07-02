@@ -2,13 +2,14 @@
 
 ## The purpose
 
-This is my emergency kit repository for basic commands for git, docker, bash and more
-
-I created this repository for learning git, bash, mark down and it probably will evolve as I learn more.
+This is my emergency kit repository for learning purpose of basic commands for git, docker, bash and lots of more. The repository will probably evolve as I learn more.
 
 ### The library contains
 
-- [Git Training With Albert](git-training-with-albert.md)
+- [Azure](azure.md)
+- [Azure DevOps](azure-devops.md)
 - [Bash Commands](bash-commands.md)
-- [Git Commands](git-commands.md)
 - [Docker Commands](docker-commands.md)
+- [Git Commands](git-commands.md)
+- [Git Training](git-training-with-albert.md)
+- [Jenkins](jenkins.md)

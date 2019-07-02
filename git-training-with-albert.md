@@ -35,7 +35,8 @@ Generate a new SSH key:
 ```bash
 ~home $ ssh-keygen
 ```
-* Skipp the password protection if you want. Often the computers password protection is enough 
+
+* Skip the password protection if you want. Often the computers password protection is enough
 
 Set permissions to the file:
 Browse to ~home directory and run:
