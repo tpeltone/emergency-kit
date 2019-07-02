@@ -35,8 +35,8 @@ Check out branch (change branch):
 git checkout dev
 git checkout -b dev
 
-Commit history:
-git log
+Log decorate:
+git log --oneline --graph --decorate
 
 Rebase (https://medium.com/datadriveninvestor/git-rebase-vs-merge-cc5199edd77c):
 git rebase master
@@ -61,8 +61,29 @@ git remote set-url ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
 Push:
 git push -u ref --all
 
-Log decorate:
-git log --oneline --graph --decorate
+Diff:
+git diff origin/master README.md
+
+Delete local branch:
+git branch -d feature_jcasc
+
+Create a pull request:
+git checkout -b feature_jcasc
+git push -u origin feature_jcasc
+
+Got to BitBucket
+Create Pull request
+Select source branch
+Select reviewer
+
+Tag:
+git lo (git log)
+git tag -a -m '1.0.0' 1.0.0 bee4184 (sha1)
+git describe
+
+added alias git lo and git graph
+cat ~/.gitconfig
+git config --global alias.lo "log --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(blue)<%an>%Creset' --abbrev-commit"
  
 
 
