@@ -2,7 +2,7 @@
 
 ## The purpose
 
-This is my emergency kit repository for basic commands in git and bash.
+This is my emergency kit repository for basic commands for git, docker, bash and more
 
 I created this repository for learning git, bash, mark down and it probably will evolve as I learn more.
 
