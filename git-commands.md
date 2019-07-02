@@ -63,7 +63,7 @@ Log decorate:
 git log --oneline --graph --decorate
 ```
 
-Rebase: [Read moore about git rebase](https://medium.com/datadriveninvestor/git-rebase-vs-merge-cc5199edd77c):
+Rebase: [Read more about git rebase](https://medium.com/datadriveninvestor/git-rebase-vs-merge-cc5199edd77c):
 
 ```bash
 git rebase master
