@@ -158,6 +158,21 @@ Create annotated tag
 git tag -a -m 'The first v1.0.0' v1.0.0 b38d91e
 ```
 
+Delete
+
+* local
+
+```bash
+git tag -d v1.0.0  
+```
+
+* remote
+
+```bash
+  git tag -d v1.0.0
+  git push origin :refs/tags/v.1.0.0
+```
+
 Get
 
 ```bash
