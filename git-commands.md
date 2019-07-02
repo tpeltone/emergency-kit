@@ -1,20 +1,5 @@
-# Tomi's - Git Emergency
+# Git commands
 
-## Bash commands
-
-Create a folder:
-
-```bash
-mkdir myfolder
-```
-
-Change directory:
-
-```bash
-cd myfolder
-```
-
-## Git commands
 Make folder a Git folder (this will be your local master):
 
 ```bash
