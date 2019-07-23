@@ -22,7 +22,7 @@ ls -laF
 ls -f (aF)
 ```
 
-SSH from a bash promt to a remoite server:
+SSH from a bash prompt to a remote server:
 
 ```bash
 ssh server-name.x.y.z
