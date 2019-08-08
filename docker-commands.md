@@ -1,42 +1,44 @@
-# Docker Commands
+# Docker
 
-List running containers:
+## Commands
+
+### List running containers
 
 ```bash
 docker ps
 ```
 
-List all containers:
+### List all containers
 
 ```bash
 docker ps -a
 ```
 
-Remove containers:
+### Remove containers
 
 ```bash
 docker rm <CONTAINER ID>
 ```
 
-List the most recently created/available images on my system:
+### List the most recently created/available images on my system
 
 ```bash
 docker images
 ```
 
-List all available images on my system:
+### List all available images on my system
 
 ```bash
 docker images -a
 ```
 
-How to remove docker images:
+### How to remove docker images
 
 ```bash
 docker rmi <IMAGE ID>
 ```
 
-Remove images according to a pattern:
+### Remove images according to a pattern
 
 * List
 
@@ -50,7 +52,7 @@ Remove images according to a pattern:
 docker images -a | grep "pattern" | awk '{print $3}' | xargs docker rmi
  ```
 
-Stop & Remove All Docker Containers:
+### Stop & Remove All Docker Containers
 
 ```bash
 docker stop $(docker ps -a -q)
@@ -74,3 +76,11 @@ Links:
 [How To Remove Docker Images, Containers, and Volumes](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
 [How to Remove Docker Images and Containers](https://tecadmin.net/remove-docker-images-and-containers/)
+
+## docker-compose commands
+
+### Log
+
+```bash
+docker-compose logs -f
+```

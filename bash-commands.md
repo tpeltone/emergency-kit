@@ -1,18 +1,20 @@
-# Bash commands
+# Bash
 
-Create a folder:
+## Commands
+
+### Create a folder
 
 ```bash
 mkdir myfolder
 ```
 
-Change directory:
+### Change directory
 
 ```bash
 cd myfolder
 ```
 
-List files and folders:
+### List files and folders
 
 ```bash
 ls -a
@@ -22,20 +24,70 @@ ls -laF
 ls -f (aF)
 ```
 
-SSH from a bash prompt to a remote server:
+### SSH from a bash prompt to a remote server (Secure SHell)
 
 ```bash
 ssh server-name.x.y.z
 ```
 
-Run bash as super user:
+### Run bash as super user
 
 ```bash
-sudo su
+sudo su -
+
+# do your work and exit
 ```
 
-Run bash as a specifik user that exists:
+### Run bash as a specific user that exists
 
 ```bash
 sudo su - <the user>
+
+# do your work and exit
+```
+
+### Name Server Lookup
+
+```bash
+nslookup <server.company.net>
+nslookup <server>
+nslookup <ip>
+```
+
+### Tar (tarball - collection of files placed into a highly compressed archive)
+
+```bash
+# download the tarball to the server
+curl -k -O https://server.company.net/some-folder/name-of-the-compressed-file.tgz
+
+# list the archive/zip to check that everything is ok
+tar ztf <name-of-the-compressed-file.tgz>
+
+# unpack the archive  
+tar zxf <name-of-the-compressed-file.tgz>
+```
+
+### cat
+
+```bash
+# reads files sequentially and writes the content to standard output
+cat /folder1/folder2/file.crt
+
+# multiple files
+cat /folder1/folder2/file1.crt /folder1/folder2/file.key
+
+# all files in folder
+cat *
+
+# create a new file of the content
+
+cat /folder1/folder2/file1.crt /folder1/folder2/file.key > certificates.pem
+```
+
+### mv
+
+```bash
+# moves one or more files or directories from one place to another
+mv /folder1/file.csr /folder2/folder3/
+
 ```
