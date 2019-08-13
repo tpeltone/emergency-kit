@@ -54,7 +54,8 @@ git branch --create dev
 
 ```bash
 # You need to Create the remote origin in git hub first
-git remote add origin <url>
+git remote add <origin> <url>
+
 ```
 
 ### Check out branch (change branch)
@@ -121,10 +122,10 @@ git fetch -p
 ### Remote
 
 ```bash
+# Show all the remotes
 git remote -v
-
-# this is when cloned from another repo and then add the ref
-git remote add ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git 
+# This is when cloned from another repo and then add the ref
+git remote add ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
 git remote set-url ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
 ```
 
@@ -137,7 +138,11 @@ git push -u ref --all
 ### Diff
 
 ```bash
+# diff a file
 git diff origin/master README.md
+
+# diff a branch
+git diff vce/ref-master
 ```
 
 ### Delete local branch
