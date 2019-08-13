@@ -48,9 +48,8 @@ git branch --create dev
 
 ### Create connection to remote origin in GitHub
 
-_You need to Create the remote origin in git hub first_
-
 ```bash
+# You need to Create the remote origin in git hub first
 git remote add origin <url>
 ```
 
@@ -72,6 +71,22 @@ git log --oneline --graph --decorate
 [Read more about git rebase](https://medium.com/datadriveninvestor/git-rebase-vs-merge-cc5199edd77c):
 
 ```bash
+# rebase the 21 last changes to one commit
+git rebase  -i HEAD~21
+
+# abort un going rebase
+git rebase --abort
+
+# to rewrite/amend the current history of the latest commit
+git commit --amend
+
+# once you are satisfied with your changes
+git rebase --continue
+
+# Edits the todo
+git rebase --edit-todo
+
+# targeting
 git rebase master
 ```
 
