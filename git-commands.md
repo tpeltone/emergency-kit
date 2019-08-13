@@ -2,6 +2,10 @@
 
 ## Commands
 
+### Good links
+
+[Jakub Pawlowicz Git Cheat Sheet](https://github.com/jakubpawlowicz/git-cheat-sheet/blob/master/README.md)
+
 ### Make folder a Git folder (this will be your local master)
 
 ```bash
@@ -118,7 +122,9 @@ git fetch -p
 
 ```bash
 git remote -v
-git remote add ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git (this is when cloned from enother repo and then add the ref)
+
+# this is when cloned from another repo and then add the ref
+git remote add ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git 
 git remote set-url ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
 ```
 
@@ -148,6 +154,7 @@ git push -u origin feature_jcasc
 ```
 
 Got to BitBucket/GitHub/Azure DevOps:
+
 * Create Pull request
 * Select source branch
 * Select reviewer
@@ -162,7 +169,7 @@ git log --oneline --graph --decorate
 
 ```bash
 * b38d91e (HEAD -> master, origin/master, origin/HEAD) added new files and cleaned up
-* 3928431 typeo
+* 3928431 Typeo
 * 855daee Typeo
 * 8073651 Added docker-commands.md
 ```
