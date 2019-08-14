@@ -2,9 +2,11 @@
 
 ## Commands
 
-### Good links
+### Cool links
 
 [Jakub Pawlowicz Git Cheat Sheet](https://github.com/jakubpawlowicz/git-cheat-sheet/blob/master/README.md)
+
+[A Tutorial for Tagging Releases in GIT](https://dev.to/neshaz/a-tutorial-for-tagging-releases-in-git-147e)
 
 ### Make folder a Git folder (this will be your local master)
 
