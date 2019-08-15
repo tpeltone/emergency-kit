@@ -77,6 +77,13 @@ Links:
 
 [How to Remove Docker Images and Containers](https://tecadmin.net/remove-docker-images-and-containers/)
 
+### Browse in a running docker container
+
+```bash
+# "sudo su - root" on the server to run this
+docker exec -it <container name> /bin/bash
+```
+
 ## docker-compose commands
 
 ### Log
