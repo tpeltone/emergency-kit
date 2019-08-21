@@ -28,6 +28,10 @@ ls -f (aF)
 
 ```bash
 ssh server-name.x.y.z
+
+# as a specific user
+ssh user-name@server-name.x.y.z
+
 ```
 
 ### Run bash as super user
@@ -91,3 +95,22 @@ cat /folder1/folder2/file1.crt /folder1/folder2/file.key > certificates.pem
 mv /folder1/file.csr /folder2/folder3/
 
 ```
+
+### curl
+
+```bash
+curl -k -v https://my-server.net 
+
+curl -k -v https://my-server.net:5000
+
+curl http://my-server.net
+```
+
+### tcpdump
+
+https://hackertarget.com/tcpdump-examples/
+
+```bash
+sudo tcpdump -i eth0 host 10.10.1.1
+```
+
