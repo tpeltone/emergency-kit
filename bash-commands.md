@@ -112,4 +112,6 @@ curl http://my-server.net
 
 ```bash
 sudo tcpdump -i eth0 host 10.10.1.1
+
+sudo tcpdump -i -v eth0 host my.jenkins.master.server.net
 ```
