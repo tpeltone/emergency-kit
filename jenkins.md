@@ -20,3 +20,14 @@ java -jar <path to warm-client.jar> -master <http://my.jenkins.master.net>
 java -jar swarm-client-3.17.jar -master -master http://my.jenmins.master.net:8080
 
  ```
+
+ ### List installed plugins
+
+ ```bash
+# You can retrieve the information using the Jenkins Script Console which is # accessible by visiting http://<jenkins-url>/script. (Given that you are logged in and have the required permissions).
+
+ Jenkins.instance.pluginManager.plugins.each{
+  plugin -> 
+    println ("${plugin.getDisplayName()} (${plugin.getShortName()}): ${plugin.getVersion()}")
+}
+ ```
