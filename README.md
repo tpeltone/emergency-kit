@@ -13,3 +13,4 @@ This is my emergency kit repository for learning purpose of basic commands for g
 - [Git Commands](git-commands.md)
 - [Git Training](git-training-with-albert.md)
 - [Jenkins](jenkins.md)
+- [Powershell](powershell.md)
