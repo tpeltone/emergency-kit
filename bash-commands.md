@@ -69,6 +69,9 @@ tar ztf <name-of-the-compressed-file.tgz>
 
 # unpack the archive  
 tar zxf <name-of-the-compressed-file.tgz>
+
+# unpack to a specific folder
+tar zxf file.tar --directory /path/to/directory
 ```
 
 ### cat
