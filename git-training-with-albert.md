@@ -52,7 +52,6 @@ export SDKMAN_DIR="/Users/tomipeltonen/.sdkman"
 [[ -s "/Users/tomipeltonen/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/tomipeltonen/.sdkman/bin/sdkman-init.sh"
 ```
 
-
 ### Albert Rigo's settings from .bash_profile:
 
 ```bash
