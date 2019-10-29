@@ -132,3 +132,17 @@ sudo tcpdump -i eth0 host 10.10.1.1
 
 sudo tcpdump -i -v eth0 host my.jenkins.master.server.net
 ```
+
+### sudo-apt
+
+[What does “sudo apt-get update” do?](https://askubuntu.com/questions/222348/what-does-sudo-apt-get-update-do)
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade
+
+sudo apt-get dist-upgrade
+
+sudo reboot
+```
