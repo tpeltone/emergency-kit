@@ -27,10 +27,24 @@ ls -f (aF)
 ### SSH from a bash prompt to a remote server (Secure SHell)
 
 ```bash
-ssh server-name.x.y.z
+# Generate SSH key
+ssh-keygen -t rsa -b 2048
+
+# Copy SSH public key to host authorized_keys
+ssh-copy-id -i ~/.ssh/mykey user@host
+
+# Test the copied key
+ssh -i ~/.ssh/mykey user@host
+
+# ssh to host
+ssh host
 
 # as a specific user
-ssh user-name@server-name.x.y.z
+ssh user-name@host
+
+# as a specific user with password
+ssh user-name@host
+
 
 ```
 
