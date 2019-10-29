@@ -22,7 +22,7 @@ Om du hamnar i en situation där magkänslan inte är bra och du känner dig obe
 
 Du skall inte komma här och komma, jag har varit här i 20 år.
 
-Du har varit här i minst 20 år och inte sätt omvärlden, jag har dock precis avslutat mina studier och har färska kunskaper.
+Du har varit här i minst 20 år och inte sett omvärlden, jag har dock precis avslutat mina studier och har färska kunskaper.
 
 - Ålder
 - Tid du varit på en arbetsplats
