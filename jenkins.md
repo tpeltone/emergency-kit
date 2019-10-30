@@ -34,6 +34,9 @@ java -jar swarm-client-3.17.jar -master -master http://my.jenmins.master.net:808
 # sorted list
 jenkins.model.Jenkins.instance.getPluginManager().getPlugins().stream().sorted().each { println "${it.getShortName()} | ${it.getVersion()} | ${it.getDisplayName()}" }
 
+# sorted short list
+jenkins.model.Jenkins.instance.getPluginManager().getPlugins().stream().sorted().each { println "${it.getShortName()}:${it.getVersion()}" }
+
 
 #Worked well for me on Mac OS X. I wanted to convert the output to a plain text list, so used some Perl regex to strip the tags
 curl 'http://192.168.197.133:8080/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins' | perl -pe 's/.*?<shortName>([\w-]+).*?<version>([^<]+)()(<\/\w+>)+/\1 \2\n/g'
