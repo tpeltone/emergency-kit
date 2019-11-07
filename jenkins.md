@@ -17,7 +17,7 @@
 java -jar <path to warm-client.jar> -master <http://my.jenkins.master.net>
 
 # ex.
-java -jar swarm-client-3.17.jar -master -master http://my.jenmins.master.net:8080
+java -jar swarm-client-3.17.jar -master http://my.jenmins.master.net:8080
 
  ```
 

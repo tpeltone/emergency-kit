@@ -67,6 +67,19 @@ git checkout dev
 git checkout -b dev
 ```
 
+### Clean up local branches after merge and delete on remote
+
+```bash
+# dry run to se what you can remove
+git remote prune origin --dry-run
+
+# now remove
+git remote prune origin
+
+# now check status
+git branch -a 
+```
+
 ### Log decorate
 
 ```bash
