@@ -70,14 +70,20 @@ git checkout -b dev
 ### Clean up local branches after merge and delete on remote
 
 ```bash
-# dry run to se what you can remove
+# 1. List branches in local machine
+git branch -a
+
+# 2. Prune/Cleanup the local references to remote branch and dry run to se what you can remove
 git remote prune origin --dry-run
 
-# now remove
+# now go ahed and actually prune/cleanup the local references
 git remote prune origin
 
-# now check status
-git branch -a 
+# Again list branches in local machine
+git branch -a
+
+# 3. Delete local branch
+git branch -d <branchname>
 ```
 
 ### Log decorate
