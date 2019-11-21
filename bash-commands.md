@@ -2,6 +2,10 @@
 
 ## Commands
 
+### Usefull Links
+
+[Linux nohup command](https://www.computerhope.com/unix/unohup.htm)
+
 ### Create a folder
 
 ```bash
@@ -145,4 +149,21 @@ sudo apt-get upgrade
 sudo apt-get dist-upgrade
 
 sudo reboot
+```
+
+### Manage processes
+
+[How to check running process in Linux using command line](https://www.cyberciti.biz/faq/how-to-check-running-process-in-linux-using-command-line/)
+
+```bash
+ps -aux
+
+sudo ps -a
+
+ps -A
+
+ps aux | grep git
+
+sudo ps aux | grep vim
+
 ```
