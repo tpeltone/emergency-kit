@@ -28,6 +28,12 @@ ls -laF
 ls -f (aF)
 ```
 
+### Find
+
+```bash
+find . -name *.img
+```
+
 ### SSH from a bash prompt to a remote server (Secure SHell)
 
 ```bash
