@@ -308,3 +308,23 @@ cat ~/.gitconfig
 ```bash
 git config --global alias.lo "log --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(blue)<%an>%Creset' --abbrev-commit"
 ```
+
+### Add submodule
+
+If you run the below command in the repo folder the submodule will be added to the .gitmodules file
+
+```bash
+
+# Syntax
+git submodule add -b <branch-name> <git-reponame> <submodule-name>
+
+# Include branch name
+git submodule add -b feature_123 ssh://git@git-vce.srv.volvo.com:7999/al/alva-a-test-linux-platform.git ALVA_IC/Platform
+
+# No branch (uses master)
+git submodule add ssh://git@git-vce.srv.volvo.com:7999/al/alva-a-test-linux-platform.git ALVA_IC/Platform
+
+# Deinit all submodules from current repo
+git submodule deinit --all
+
+```
