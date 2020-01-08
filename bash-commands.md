@@ -173,3 +173,9 @@ ps aux | grep git
 sudo ps aux | grep vim
 
 ```
+
+### Get Proxy
+
+```bash
+env  | grep  -i proxy
+```
