@@ -162,7 +162,7 @@ sudo reboot
 [How to check running process in Linux using command line](https://www.cyberciti.biz/faq/how-to-check-running-process-in-linux-using-command-line/)
 
 ```bash
-ps -aux
+ps -auxww
 
 sudo ps -a
 
@@ -178,4 +178,12 @@ sudo ps aux | grep vim
 
 ```bash
 env  | grep  -i proxy
+```
+
+### Network
+
+[How to: Running a TCP Traceroute](https://support.opendns.com/hc/en-us/articles/227989007-How-to-Running-a-TCP-Traceroute)
+
+```bash
+tcptraceroute <host> <port>
 ```
