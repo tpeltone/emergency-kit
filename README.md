@@ -16,3 +16,4 @@ This is my emergency kit repository for learning purpose of basic commands for g
 - [Powershell](powershell.md)
 - [Vim](vim.md)
 - [X Techniques](x-techniques.md)
+- [Semantic Commit Messages](semantic-commit-messages.md)
