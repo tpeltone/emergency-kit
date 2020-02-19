@@ -34,7 +34,7 @@ ls -f (aF)
 find . -name *.img
 ```
 
-### SSH from a bash prompt to a remote server (Secure SHell)
+### SSH from a bash prompt to a remote server (Secure Shell)
 
 ```bash
 # Generate SSH key
@@ -54,8 +54,21 @@ ssh user-name@host
 
 # as a specific user with password
 ssh user-name@host
+```
 
+### Create .ssh folder and keys manually and set the prefered permissions
 
+```bash
+# The .ssh directory permissions should be chmod 700 (drwx------)
+mkdir .ssh;chmod 700 .ssh
+
+cd .shh
+
+# The public key file permissions should be chmod 644 (-rw-r--r--)
+vim id_rsa.pub;chmod 644 id_rsa.pub
+
+# The private key file permissions should be chmod 600 (-rw-------)
+vim id_rsa;chmod 600 id_rsa
 ```
 
 ### Run bash as super user
