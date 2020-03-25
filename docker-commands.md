@@ -84,6 +84,50 @@ Links:
 docker exec -it <container name> /bin/bash
 ```
 
+### How to fix docker: Got permission denied while trying to connect to the Docker daemon socket
+
+According to the official Docker docs [here](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user)
+
+You need to do the following:
+
+To create the docker group and add your user:
+
+Create the docker group.
+sudo groupadd docker
+Add your user to the docker group.
+
+```bash
+sudo usermod -aG docker ${USER}
+```
+
+You would need to loog out and log back in so that your group membership is re-evaluated or type the following command:
+
+```bash
+su -s ${USER}
+```
+
+Verify that you can run docker commands without sudo.
+
+```bash
+docker run hello-world
+```
+
+This command downloads a test image and runs it in a container. When the container runs, it prints an informational message and exits.
+
+If you initially ran Docker CLI commands using sudo before adding your user to the docker group, you may see the following error, which indicates that your ~/.docker/ directory was created with incorrect permissions due to the sudo commands.
+
+```bash
+WARNING: Error loading config file: /home/user/.docker/config.json -
+stat /home/user/.docker/config.json: permission denied
+````
+
+To fix this problem, either remove the ~/.docker/ directory (it is recreated automatically, but any custom settings are lost), or change its ownership and permissions using the following commands:
+
+```bash
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "$HOME/.docker" -R
+```
+
 ## docker-compose commands
 
 ### Log
