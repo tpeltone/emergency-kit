@@ -288,6 +288,69 @@ to get a better string for IDs like
 v2.0-40-gdc25d60
 Here, ‘v2.0′ is the latest tag. ’40’ is the number of commits after the ‘v2.0’ tag and ‘gdc25d60’ is the first 8 digits of the commit sha-1 hash ID.
 
+### Fork
+
+#### How to keep your Git-Fork up to date
+
+When it comes to the situation that you fork a repository and you contribute to it, then it could happen that your fork and the upstream are not in sync anymore. So the goal is, that you get a current version of the upstream repository and then you can merge the new changes into your fork.
+
+1. Create a fork of the repo
+
+    A fork is a copy of someone others repository in your account, which can be an independent development project.
+
+    ![Drag Racing](pics/fork.png)
+
+2. Clone the fork
+
+    Clone the fork as a regular repository, as you always do.
+
+    ```bash
+    git clone git@github.com:tpeltone/configuration-as-code-jenkins-k8s.git
+    ```
+
+3. Add the upstream
+
+    The original repository is mostly called `upstream`. In our case, we use `figaw/configuration-as-code-jenkins-k8s` for instance. Cd into your fork repository and add the upstream. You can name it however you want, though `upstream` is just best practice.
+
+    ```bash
+    git remote add upstream git://github.com/figaw/configuration-as-code-jenkins-k8s.git
+    ```
+
+    If you now have a look at your remote URLs, you should see the following:
+
+    ```bash
+    git remote -v
+
+    origin git@github.com:tpeltone/configuration-as-code-jenkins-k8s.git (fetch)
+    origin git@github.com:tpeltone/configuration-as-code-jenkins-k8s.git (push)
+    upstream git://github.com/figaw/configuration-as-code-jenkins-k8s.git (fetch)
+    upstream git://github.com/figaw/configuration-as-code-jenkins-k8s.git (push)
+    ```
+
+4. Keep the upstream updated
+
+    Now as we have both URLs get tracked, we can update the two sources independently. Fetch whatever you want from the `upstream`
+
+    ```bash
+    git fetch upstream
+    ```
+
+5. Merge the upstream with your fork
+
+    Then you can merge the changes
+
+    ```bash
+    git merge upstream/master master
+    ```
+
+    With that, you merge the latest changes from the master branch of the upstream into your local master branch. If you like, you can also use git pull, which is nothing else than fetching and merging in one step.
+
+    Pro Tip: The best way in my eyes is, to rebase because that fetches the latest changes of the upstream branch and replay your work on top of that. Here is, how it works:
+
+    ```bash
+    git rebase upstream/master
+    ```
+
 ### Rename file
 
 ```bash
@@ -309,7 +372,7 @@ cat ~/.gitconfig
 git config --global alias.lo "log --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(blue)<%an>%Creset' --abbrev-commit"
 ```
 
-### Add submodule
+### Submodule
 
 If you run the below command in the repo folder the submodule will be added to the .gitmodules file
 
