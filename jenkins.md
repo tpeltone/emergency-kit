@@ -42,3 +42,15 @@ jenkins.model.Jenkins.instance.getPluginManager().getPlugins().stream().sorted()
 curl 'http://192.168.197.133:8080/pluginManager/api/xml?depth=1&xpath=/*/*/shortName|/*/*/version&wrapper=plugins' | perl -pe 's/.*?<shortName>([\w-]+).*?<version>([^<]+)()(<\/\w+>)+/\1 \2\n/g'
 
  ```
+
+### Get the initial Jenkins admin password from running Docker container
+
+Enter the container
+ ```bash
+docker exec -it <container name> /bin/bash
+ ```
+
+Inside te container
+ ```bash
+ cat secrets/initialAdminPassword 
+ ```
