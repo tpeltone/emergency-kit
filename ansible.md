@@ -10,7 +10,15 @@
 
 - [Modules Index](https://docs.ansible.com/ansible/latest/modules/modules_by_category.html)
 
-### Ansible ad-hoc-configuration
+### First add some cool stuff
+
+[Install bat a cat clone with wings](https://github.com/sharkdp/bat)
+
+```bash
+ansible -m homebrew -a "name=bat state=latest" localhost
+```
+
+### Ansible ad-hoc configuration
 
  ![Drag Racing](pics/ansible-ad-hoc.png)
 
@@ -42,3 +50,5 @@ ansible -m copy -a "src=master.gitconfig dest=~/.gitconfig" --check --diff local
 # apply changes and show diff of what was changed
 ansible -m copy -a "src=master.gitconfig dest=~/.gitconfig" --diff localhost
 ```
+
+### Ansible play-book
