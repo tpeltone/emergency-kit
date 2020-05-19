@@ -7,6 +7,10 @@ Ansible is an open-source agentless automation tool, or platform, used for IT ta
 The samples I use is taken from the course [Getting Started with Ansible](https://app.pluralsight.com/library/courses/getting-started-ansible/table-of-contents) by [Wes Higbee](https://github.com/g0t4/course-ansible-getting-started).  
 _Note: This is for my own learning and understanding of Ansible._
 
+[Ansible on GitHub](https://github.com/ansible/ansible)
+
+[Ansible Galaxy](https://galaxy.ansible.com/)
+
 [Ansible Documentation](https://docs.ansible.com/ansible/latest/index.html#)
 
 - [Installation Guide](https://docs.ansible.com/ansible/latest/installation_guide/index.html)
@@ -15,12 +19,51 @@ _Note: This is for my own learning and understanding of Ansible._
 
 - [Modules Index](https://docs.ansible.com/ansible/latest/modules/modules_by_category.html)
 
-### First some good to know stuff
+### First some "good to know stuff"
+
+How to get [shell-completion](https://docs.ansible.com/ansible/devel/installation_guide/intro_installation.html#shell-completion) to make it easier to find what you are looking for.
+
+```bash
+# Installing argcomplete with apt
+sudo apt install python-argcomplete
+
+# Installing argcomplete with pip
+pip install argcomplete
+
+# Configure argcomplete
+sudo activate-global-python-argcomplete
+
+# Type ansible- then tab to see what options you have 
+ansible- 
+
+# result:
+ansible-config      ansible-console     ansible-galaxy      ansible-playbook    ansible-test        
+ansible-connection  ansible-doc         ansible-inventory   ansible-pull        ansible-vault
+```
+
+[Install jq a command-line JSON processor](https://github.com/stedolan/jq)
+
+[Install a command-line fuzzy finder](https://github.com/junegunn/fzf)
 
 [Install bat a cat clone with wings](https://github.com/sharkdp/bat)
 
 ```bash
+# Windows
+choco install bat
+#or
+scoop install bat
+
+# Mac
 ansible -m homebrew -a "name=bat state=latest" localhost
+
+# Linux
+apt install bat
+
+# If you install bat this way, please note that the executable may be installed as batcat instead of bat (due to a name clash with another package). You can set up a bat -> batcat symlink or alias to prevent any issues that may come up because of this and to be consistent with other distrutions:
+
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
 ```
 
 Use bat for reading the documentation
@@ -47,6 +90,8 @@ ansible -m setup -a "filter=ansible_pkg_mgr" all
 ```
 
 ### Ansible ad-hoc configuration
+
+![Drag Racing](pics/ansible-push.png)
 
 ![Drag Racing](pics/ansible-ad-hoc.png)
 
@@ -84,6 +129,8 @@ ansible -m copy -a "src=master.gitconfig dest=~/.gitconfig" --diff localhost
 ```bash
 ansible-doc -h
 
+# For all the main commands use -h to get help
+
 # Configuration
 # list ansible configuration
 ansible-config list
@@ -98,6 +145,7 @@ ansible-doc copy
 
 # List available plugin types:('become', 'cache','callback', 'cliconf', 'connection', 'httpapi','inventory', 'lookup', 'netconf', 'shell', 'module','strategy', 'vars')
 ansible-doc -t shell --list
+
 #output:
 cmd        Windows Command Prompt
 csh        C shell (/bin/csh)
@@ -116,6 +164,64 @@ ansible-doc -t shell sh
 
 # Copy the path and use bat to see the documentation (nice way to read it)
 bat /usr/local/lib/python3.7/site-packages/ansible/plugins/shell/sh.py
+
+```
+
+Ansible console REPL (Docker)
+
+```bash
+docker container run --rm -it python bin/bash
+
+# in the container type first install ansible and
+root@0ec6cef6f1cc:/ pip install ansible
+
+# then start using the ansible command
+root@0ec6cef6f1cc:/ ansible-console localhost
+
+# then type git and hit tab
+root@localhost (1)[f:5]$ git
+
+# result:
+git                      github_hooks             github_release           github_webhook_info      gitlab_hook              gitlab_project_variable
+git_config               github_issue             github_webhook           gitlab_deploy_key        gitlab_hooks             gitlab_runner
+github_deploy_key        github_key               github_webhook_facts     gitlab_group             gitlab_project           gitlab_user
+
+# Choose git_config module and hit tab
+root@localhost (1)[f:5]$ git_config 
+list_all=  name=      repo=      scope=     state=     value=     
+
+# List the global git configuration and you see that there is nothing yet
+root@localhost (1)[f:5]$ git_config list_all=yes scope=global
+localhost | SUCCESS => {
+    "changed": false,
+    "config_values": {},
+    "msg": ""
+}
+
+# Add the user email at global scope and you see that it have changed
+root@localhost (1)[f:5]$ git_config name=user.email value=foo@bar.com scope=global
+localhost | CHANGED => {
+    "changed": true,
+    "msg": "setting changed"
+}
+
+# Run the same command again and you see that nothing has changed
+# Idempotent is where you call the same function with the same value and the result is exactly the same
+root@localhost (1)[f:5]$ git_config name=user.email value=foo@bar.com scope=global
+localhost | SUCCESS => {
+    "changed": false,
+    "msg": ""
+}
+
+# List the global git configuration and you see that there is a user email now
+root@localhost (1)[f:5]$ git_config list_all=yes scope=global
+localhost | SUCCESS => {
+    "changed": false,
+    "config_values": {
+        "user.email": "foo@bar.com"
+    },
+    "msg": ""
+}
 
 ```
 
@@ -185,6 +291,9 @@ ansible-inventory --list
 # shows the graph of the inventory
 ansible-inventory --graph
 
+# You can always use the -h for help to get more info
+ansible-inventory -h
+
 # the result in my environment when running the above command
 @all:
   |--@ungrouped:
@@ -219,4 +328,125 @@ When you are finished playing around you can remove the virtual machines from vi
 
 ```bash
 vagrant destroy -f
+```
+
+### Ansible Docker Container Plugin
+
+Create a playbook as below and name it "create-container.yml"
+
+```yml
+---
+
+- name: Ensure pre-reqs for docker_container module 
+  hosts: localhost
+  tasks:
+  - pip: name=docker state=present
+
+- name: Ensure docker containers created
+  hosts: localhost
+  tasks:
+  - name: Ensure docker container started 
+    docker_container:
+      image: python
+      #command: bash
+      interactive: yes
+      name: "{{ item }}" 
+      state: started
+    loop: "{{ query('inventory_hostnames', 'containers') }}"
+
+- name: Ensure git configured in containers
+  hosts: containers 
+  tasks:
+  - git_config: scope=global list_all=yes
+  - git_config: scope=global name=user.email value=foo@bar.com
+  - git_config: scope=global name=user.name value='Foo Bar'
+  - git_config: scope=global list_all=yes
+```
+
+```bash
+# Run the playbook to start the containers
+ansible-playbook create-container.yml
+```
+
+```bash
+# Get into one of the containers to check if everything seems ok after the playbook was run
+docker container exec -it ansible_container_test1 bin/bash
+```
+
+```bash
+# check git config
+root@e137024f6355:/ git config --global --list
+
+# result:
+user.email=foo@bar.com
+user.name=Foo Bar
+```
+
+Play around and learn new stuff and when you are had enough it's time to clean up.
+
+Create a playbook as below and name it "create-container.yml"
+
+```yml
+- name: Ensure containers are gone 
+  hosts: localhost
+  tasks:
+  - name: Ensure container is absent 
+    docker_container:
+      name: "{{ item }}" 
+      force_kill: yes
+      state: absent 
+    loop: "{{ query('inventory_hostnames', 'containers') }}"
+```
+
+```bash
+# Run the playbook and clean up (this only cleans the containers, the image is still on your system)
+ansible-playbook cleanup.yml
+```
+
+### ansible-pull
+
+[Pulls playbooks from a VCS repo and executes them for the local host](https://docs.ansible.com/ansible/latest/cli/ansible-pull.html)
+
+![Drag Racing](pics/ansible-pull.png)
+
+
+```bash
+# Get help/more info about ansible-pull
+ansible-pull -h
+```
+
+### Exploiting Roles and Collections with ansible-galaxy
+
+The low level "Blocks" - Modules allow us to configure a specific aspect of our system as the git configuration
+![Drag Racing](pics/ansible-modules.png)
+
+Plugins form the core of Ansible 
+![Drag Racing](pics/ansible-plugins.png)
+
+Then we have a way to compose the low level blocks, roles and collections
+
+Use [Ansible Galaxy](https://galaxy.ansible.com/) to explore the community
+
+![Drag Racing](pics/ansible-composing-low-level-blocks.png)
+
+```bash
+# From command line
+ansible-galaxy collection -h
+
+ansible-galaxy role -h
+
+ansible-galaxy role list
+```
+
+Install and remove a Role
+
+```bash
+# Find the role you are interested in Ansible Galaxy and check always the source before installing
+# The -v is added for verbosity
+
+# Install
+ansible-galaxy install kosssi.gitconfig -v
+
+# Remove
+ansible-galaxy role remove kosssi.gitconfig -v
 ```
