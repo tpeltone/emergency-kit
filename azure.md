@@ -6,7 +6,19 @@
 
 [GitHub - Microsoft Smart Hotel 360](https://github.com/Microsoft/SmartHotel360)
 
+[GitHub - Microsoft Parts Unlimited](https://github.com/microsoft/PartsUnlimited) 
+
 [Deploying Infrastructure Automatically To Azure CLoud Using Ansible and Azure Pipelines](https://www.youtube.com/watch?v=Q8aWeHCrGh4)
+
+[Deploying Infrastructure Automatically To The Cloud Using Terraform and Azure Pipelines](https://www.youtube.com/watch?v=KiCZzJlS16A)
+
+[Multi-Stage CI/CD Pipelines as Code with YAML For Azure DevOps](https://www.youtube.com/watch?v=i77vEEVAfB8)
+
+[Creating a multi-stage YAML pipeline in Azure DevOps](https://www.youtube.com/watch?v=ifek3H71uxQ)
+
+[GitHub - Multi-Stage YAML Pipeline](https://github.com/gbaeke/multi-stage-yaml-demo)
+
+[Deploy Docker image to Kubernetes Cluster | CI-CD for Azure Kubernetes Service](https://www.youtube.com/watch?v=4DUhc0MjdUc)
 
 ### Create Service Principal
 
