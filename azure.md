@@ -24,7 +24,7 @@ The output looks something likes this, but of course with your unique values.
   "appId": "xxxx-xxxx-xxxx-xxxxx-xxxxxx-xx",
   "displayName": "ServicePrincipalXXX",
   "name": "http://ServicePrincipalXXX",
-  "password": "6c42a565-25eb-498c-9467-65d2b1e5b5f2",
+  "password": "xxxx-xxxx-xxxx-xxxxx-xxxxxx-xx",
   "tenant": "xxxx-xxxx-xxxx-xxxxx-xxxxxx-xx"
 }
 ```
