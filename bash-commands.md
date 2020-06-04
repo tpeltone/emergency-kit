@@ -200,3 +200,31 @@ env  | grep  -i proxy
 ```bash
 tcptraceroute <host> <port>
 ```
+
+### Check os version in Linux
+
+```bash
+
+# /etc/os-release file
+cat /etc/os-release
+
+# The lsb_release command gives LSB (Linux Standard Base) and distribution-specific information on the CLI
+lsb_release -a
+
+# Use hostnamectl command to query and change the system hostname and related settings
+hostnamectl
+
+# uname command prints the Linux kernelk version
+uname -r
+
+# /proc/version
+cat /proc/version
+
+# /etc/issue file
+cat /etc/issue file
+
+# You can also view the manual page on uname using the following command:
+man hostnamectl
+man uname
+man cat
+```
