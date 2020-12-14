@@ -137,13 +137,35 @@ mv /folder1/file.csr /folder2/folder3/
 ```
 
 ### curl
-
+ 
 ```bash
 curl -k -v https://my-server.net
 
 curl -k -v https://my-server.net:5000
 
 curl http://my-server.net
+```
+
+### chown
+
+How to user chown
+```bash
+chown [OPTIONS] USER[:GROUP] FILE(s)
+```
+
+How to Change the Owner of a File 
+```bash
+chown USER FILE
+```
+
+How to Change the Owner and Group of a File
+```bash
+chown USER:GROUP FILE
+```
+
+How to Change the Group of a File
+```bash
+chown :GROUP FILE
 ```
 
 ### tcpdump
