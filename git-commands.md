@@ -166,10 +166,15 @@ git diff origin/master README.md
 git diff vce/ref-master
 ```
 
-### Delete local branch
+### Delete local branch that you have merged to master
 
 ```bash
-git branch -d feature_jcasc
+
+git fetch origin master:master
+git checkout master
+git pull -pv
+git branch -d <local branch name>
+
 ```
 
 ### Create a pull request
