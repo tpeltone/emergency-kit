@@ -365,7 +365,7 @@ git commit -m "Rename file"
 git push origin your-branch
 ```
 
-### Make file excutable on Linux
+### Make file executable on Linux
 
 ```bash
  git update-index --chmod=+x <the file>
