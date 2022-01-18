@@ -26,46 +26,146 @@ echo "my text" > myfile.txt
 echo "my new row of text" >> myfile.txt
 ```
 
-### Add file into git
+### Add
 
 ```bash
+# Adds everything in the current repo
 git add .
+# Adds a file
 git add myfile.txt
+# Adds several files
 git add myfile.txt myfile2.txt
 ```
 
-### Stage file in git
+### Stage (stage is a synonym to add as the git documentation says)
 
 ```bash
 git stage myfile.txt
 ```
 
-### Commit file to git
+### Commit
 
 ```bash
 git commit -m "my commit comment"
 ```
 
-### Create a new local branch
-
 ```bash
-git branch --create dev
+# You can get rid of add and go straight to commit by using -am flag instead
+git commit -am "my commit comment"
 ```
 
-### Create connection to remote origin in GitHub
+```bash
+# If you make a typo in you last commit message you can rewrite/amend the current history
+git commit --amend -m "my rewritten commit comment"
+
+# If you forgot to include or add a file with your last commit and keep the history and the latest commit message
+git commit --amend --not-edit
+
+# Keep in mind, this only really works if you havent allready pushed your code to a remote repository unless you like to live dangerously and owerite the history on remote.
+# Keep also in mind that with this you will owerwrite you collagues pushed code if you haven't got in your branch.
+git push origin master --force
+```
+
+### Revert
+
+[Git revert](https://www.atlassian.com/git/tutorials/undoing-changes/git-revert)
 
 ```bash
+# If you realize that you pushed some garbage to the remote repository you can revert a commit and go back to the previous state. Commit history will be kept.
+git revert HEAD main
+```
+
+### Switch
+
+```bash
+# change branch
+git switch my/branch
+
+# checkout the previous branch
+git switch -
+
+# switch to a new branch
+git switch -c new/branch
+```
+
+### Checkout
+
+```bash
+# change branch
+git checkout my/branch
+
+# checkout the previous branch
+git checkout -
+
+# checkput/create a new branch
+git checkout -b dev
+
+# checkout file
+git checkout myfile.txt
+```
+
+### Reset
+
+```bash
+# Reset a change
+git reset HEAD~
+
+# Reset hard (local changes will be lost forever)
+git reset --hard origin/master
+```
+
+### Clean
+
+```bash
+# Clean the repo from random files and build artifacts
+git clean -df
+```
+
+### Branch
+
+```bash
+# Create a new local branch
+git branch --create my/branch
+
+# Rename branch localy
+# First switch to the branch you want to rename
+git branch -M my/branch
+```
+
+### Remote
+
+```bash
+# Create connection to remote origin in GitHub
 # You need to Create the remote origin in git hub first
 git remote add <origin> <url>
 
+# Show all the remotes
+git remote -v
+
+# This is when cloned from another repo and then add the ref
+git remote add ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
+git remote set-url ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
 ```
 
-### Check out branch (change branch)
+### Log
 
 ```bash
-git checkout dev
-git checkout -b dev
+git log --oneline --graph --decorate
 ```
+
+### Bisect
+
+```bash
+git bisect start
+git bisect bad
+git bisect good 6d010fd
+
+# reset the bisect command
+git bisect reset
+
+```
+
+### Working in a feature branch that
 
 ### Clean up local branches after merge and delete on remote
 
@@ -84,12 +184,6 @@ git branch -a
 
 # 3. Delete local branch
 git branch -d <branchname>
-```
-
-### Log decorate
-
-```bash
-git log --oneline --graph --decorate
 ```
 
 ### Rebase
@@ -122,32 +216,20 @@ git rebase master
 git merge master
 ```
 
-### Reset change
-
-```bash
-git reset HEAD~
-```
-
 ### Get original file after a change
 
 ```bash
 git checkout -- file2.txt
 ```
 
-### Prune
+### Fetch
 
 ```bash
-git fetch -p
-```
+# Fetch latest from origin
+git fetch origin/master
 
-### Remote
-
-```bash
-# Show all the remotes
-git remote -v
-# This is when cloned from another repo and then add the ref
-git remote add ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
-git remote set-url ref ssh://git@stash.srv.volvo.com:7999/esw/jcasc-ref.git
+# Fetch the latest + prune & verbose
+git fetch -pv
 ```
 
 ### Push
@@ -166,10 +248,10 @@ git diff origin/master README.md
 git diff vce/ref-master
 ```
 
-### Delete local branch that you have merged to master
+### Branches
 
 ```bash
-
+# Delete local branch that you have merged to master
 git fetch origin master:master
 git checkout master
 git pull -pv
@@ -216,7 +298,7 @@ Delete
 * local
 
 ```bash
-git tag -d v1.0.0  
+git tag -d v1.0.0
 ```
 
 * remote
@@ -377,9 +459,10 @@ git push origin your-branch
 cat ~/.gitconfig
 ```
 
-### Add alias git lo
+### Git config
 
 ```bash
+# add alias git lo instead of git log
 git config --global alias.lo "log --graph --pretty=format:'%C(bold red)%h%Creset -%C(bold yellow)%d%Creset %s %C(bold green)(%cr) %C(blue)<%an>%Creset' --abbrev-commit"
 ```
 
