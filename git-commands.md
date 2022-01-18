@@ -8,7 +8,7 @@
 
 [A Tutorial for Tagging Releases in GIT](https://dev.to/neshaz/a-tutorial-for-tagging-releases-in-git-147e)
 
-### Make folder a Git folder (this will be your local master)
+### Make folder a Git folder (this will be your local main)
 
 ```bash
 git init
@@ -63,7 +63,7 @@ git commit --amend --not-edit
 
 # Keep in mind, this only really works if you havent allready pushed your code to a remote repository unless you like to live dangerously and owerite the history on remote.
 # Keep also in mind that with this you will owerwrite you collagues pushed code if you haven't got in your branch.
-git push origin master --force
+git push origin main --force
 ```
 
 ### Revert
@@ -111,7 +111,7 @@ git checkout myfile.txt
 git reset HEAD~
 
 # Reset hard (local changes will be lost forever)
-git reset --hard origin/master
+git reset --hard origin/main
 ```
 
 ### Clean
@@ -165,7 +165,19 @@ git bisect reset
 
 ```
 
-### Working in a feature branch that
+### Working with a long lived branch and the main branch starts diverge a lot
+
+```bash
+# In the long lived branch do
+git pull --rebase origin main
+
+# then push
+git push origin main
+
+# if the push fails this command makes sure that you don't owerwrite any commits on main
+git push --force-with-lease --force-if-includes
+
+```
 
 ### Clean up local branches after merge and delete on remote
 
@@ -207,13 +219,13 @@ git rebase --continue
 git rebase --edit-todo
 
 # targeting
-git rebase master
+git rebase main
 ```
 
 ### Merge
 
 ```bash
-git merge master
+git merge main
 ```
 
 ### Get original file after a change
@@ -226,7 +238,7 @@ git checkout -- file2.txt
 
 ```bash
 # Fetch latest from origin
-git fetch origin/master
+git fetch origin/main
 
 # Fetch the latest + prune & verbose
 git fetch -pv
@@ -242,18 +254,18 @@ git push -u ref --all
 
 ```bash
 # diff a file
-git diff origin/master README.md
+git diff origin/main README.md
 
 # diff a branch
-git diff vce/ref-master
+git diff vce/ref-main
 ```
 
 ### Branches
 
 ```bash
-# Delete local branch that you have merged to master
-git fetch origin master:master
-git checkout master
+# Delete local branch that you have merged to main
+git fetch origin main:main
+git checkout main
 git pull -pv
 git branch -d <local branch name>
 
@@ -281,7 +293,7 @@ git log --oneline --graph --decorate
 ```
 
 ```bash
-* b38d91e (HEAD -> master, origin/master, origin/HEAD) added new files and cleaned up
+* b38d91e (HEAD -> main, origin/main, origin/HEAD) added new files and cleaned up
 * 3928431 Typeo
 * 855daee Typeo
 * 8073651 Added docker-commands.md
@@ -427,15 +439,15 @@ When it comes to the situation that you fork a repository and you contribute to 
     Then you can merge the changes
 
     ```bash
-    git merge upstream/master master
+    git merge upstream/main main
     ```
 
-    With that, you merge the latest changes from the master branch of the upstream into your local master branch. If you like, you can also use git pull, which is nothing else than fetching and merging in one step.
+    With that, you merge the latest changes from the main branch of the upstream into your local main branch. If you like, you can also use git pull, which is nothing else than fetching and merging in one step.
 
     Pro Tip: The best way in my eyes is, to rebase because that fetches the latest changes of the upstream branch and replay your work on top of that. Here is, how it works:
 
     ```bash
-    git rebase upstream/master
+    git rebase upstream/main
     ```
 
 ### Rename file
@@ -478,7 +490,7 @@ git submodule add -b <branch-name> <git-reponame> <submodule-name>
 # Include branch name
 git submodule add -b feature_123 ssh://git@git-vce.srv.volvo.com:7999/al/alva-a-test-linux-platform.git ALVA_IC/Platform
 
-# No branch (uses master)
+# No branch (uses main)
 git submodule add ssh://git@git-vce.srv.volvo.com:7999/al/alva-a-test-linux-platform.git ALVA_IC/Platform
 
 # Deinit all submodules from current repo
