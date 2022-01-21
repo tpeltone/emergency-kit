@@ -11,6 +11,7 @@ This is my emergency kit repository for learning purpose of basic commands for g
 - [Azure DevOps](azure-devops.md)
 - [Bash Commands](bash-commands.md)
 - [Docker Commands](docker-commands.md)
+- [Gerrit](gerrit.md)
 - [Git Commands](git-commands.md)
 - [Git Training](git-training-with-albert.md)
 - [Jenkins](jenkins.md)
