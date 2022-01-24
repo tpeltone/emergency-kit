@@ -24,7 +24,7 @@ ssh -p 29418 localhost replication start --now --wait myproject/myteam/aosp/plat
 
 ```bash
 # Check Gerrit Queue
-ssh -p 29418 my-gerrit.srv.awesome.com gerrit show-queue
+ssh -p 29418 my-gerrit.srv.awesome.com gerrit show-queue -w
 ```
 
 If there is no queue, you can check logs at _$GERRIT_HOME/logs/_
