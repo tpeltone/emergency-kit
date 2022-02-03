@@ -269,7 +269,14 @@ git checkout main
 git pull -pv
 git branch -d <local branch name>
 
+# Your default branch name (master) has been renamed (main)
+# If you have a local clone, you can update it by running
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+
 ```
+
 
 ### Create a pull request
 
