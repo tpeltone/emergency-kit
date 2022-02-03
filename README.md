@@ -17,5 +17,6 @@ This is my emergency kit repository for learning purpose of basic commands for g
 - [Jenkins](jenkins.md)
 - [Powershell](powershell.md)
 - [Vim](vim.md)
+- [WSL](wsl.md)
 - [X Techniques](x-techniques.md)
 - [Semantic Commit Messages](semantic-commit-messages.md)
