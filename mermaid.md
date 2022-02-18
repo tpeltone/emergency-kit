@@ -12,9 +12,13 @@
 
 [Diagram Syntax](https://mermaid-js.github.io/mermaid/#/n00b-syntaxReference?id=syntax-structure)
 
+[Mermaid Cli](https://github.com/mermaid-js/mermaid-cli)
+
+[Mermaid Live Editor](https://mermaid.live/edit#pako:eNpVkM-KwkAMxl8l5OSCfYEeBG3Vi6Cgt46H0InOIPOHdMoibd99p5aF3ZyS7_t9IWTANmjGEp9C0cCtVh5ybZvKiO2So-4ORbEZj5zABc_vEXarY4DOhBitf34t_G6GoBpOM8aQjPWvabGqT_7seYS6OVFMId7_OrfvMMK-sReT1_93jHBOHZoHlQ8qWhKoSD4IrtGxOLI6nz7MisJk2LHCMrea5KVQ-SlzfdSUeK9tCoJlkp7XSH0K17dvf-eFqS3lL7hFnH4ABg5bBA)
+
 ### Diagram samples  
 
-__Flowchart__
+Flowchart
 
 ```shell
 flowchart LR
@@ -32,7 +36,7 @@ C -->|One| D[Result 1]
 C -->|Two| E[Result 2]
 ```
 
-__Graph__
+Graph
 
 ```shell
   graph TD;
@@ -50,7 +54,7 @@ __Graph__
       C-->D;
 ```
 
-__Squence Diagram__
+Squence Diagram
 
 ```shell
 sequenceDiagram
@@ -66,7 +70,7 @@ sequenceDiagram
     Alice-)John: See you later!
 ```
 
-__Pie chart__
+Pie chart
 
 ```shell
     pie
@@ -82,7 +86,7 @@ __Pie chart__
     "Rats" : 15
 ```
 
-__State Diagram__
+State Diagram
 
 ```shell
 stateDiagram-v2
