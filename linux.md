@@ -148,3 +148,18 @@ sudo su - <the user>
 
 # do your work and exit
 ```
+
+### Is systemd-resolved.service — Network Name Resolution manager up and running
+
+https://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html
+
+```bash
+# Check status:
+sudo systemctl status systemd-resolved.service
+
+# Got this message:
+Warning: journal has been rotated since unit was started, output may be incomplete.
+
+# Restart service:
+sudo systemctl restart systemd-resolved.service
+```

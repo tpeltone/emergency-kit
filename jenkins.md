@@ -54,3 +54,9 @@ Inside te container
  ```bash
  cat secrets/initialAdminPassword 
  ```
+
+### How to view Jenkins job configuration as XML in the Browser
+
+One can view a Jenkins job configuration as XML in the browser by appending `config.xml` to the end of the URL.  
+For example, if you have the following URL to a Jenkins job https://jenkins.mycompany.com/job/myjob, append config.xml: https://jenkins.mycompany.com/job/myjob/config.xml.  
+This also works for users who do not have write access to the job.
