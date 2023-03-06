@@ -222,6 +222,16 @@ git rebase --edit-todo
 git rebase main
 ```
 
+```bash
+# Example of rebase
+# Rebase main branch to feature branch
+# Active branch is feature branch
+# Follow the steps below
+git pull --rebase origin master
+
+git push --force-with-lease --force-if-includes
+```
+
 ### Merge
 
 ```bash
